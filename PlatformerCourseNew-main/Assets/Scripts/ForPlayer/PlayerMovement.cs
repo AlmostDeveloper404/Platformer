@@ -106,14 +106,6 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-
-    //    Handles.DrawLine(CeilingCheckPoint.position,Vector3.up*20f);
-        
-    //}
-
     private void OnCollisionExit(Collision collision)
     {
         isGrounded = false;

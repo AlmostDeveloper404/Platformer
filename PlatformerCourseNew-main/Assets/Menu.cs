@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour
         {
             ScriptsToDisable[i].enabled = false;
         }
+        Time.timeScale = 0.01f;
     }
 
     public void CloseMenu()
@@ -29,6 +30,7 @@ public class Menu : MonoBehaviour
         {
             ScriptsToDisable[i].enabled = true;
         }
+        Time.timeScale = 1f;
     }
 
     public void PlayMusic(bool value)
