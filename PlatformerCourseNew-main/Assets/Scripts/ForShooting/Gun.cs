@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
 
     public AudioSource ShotSound;
 
+    public ParticleSystem ShotEffect;
+
     [SerializeField]float _timer;
 
     private void Update()
@@ -38,6 +40,7 @@ public class Gun : MonoBehaviour
 
         ShotSound.volume = Random.Range(0.1f,0.25f);
         ShotSound.pitch = Random.Range(0.7f,1.2f);
+        ShotEffect.Play();
         ShotSound.Play();
     }
 

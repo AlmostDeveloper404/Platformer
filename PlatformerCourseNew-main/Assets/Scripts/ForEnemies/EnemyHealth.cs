@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
     public int Health=1;
 
     public UnityEvent EventOnTakeDamage;
+    public UnityEvent EventOnDie;
 
     public void TakeDamage(int damage)
     {
@@ -22,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        EventOnDie.Invoke();
         Destroy(gameObject);
     }
 }
