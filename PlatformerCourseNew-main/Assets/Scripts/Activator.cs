@@ -6,12 +6,12 @@ using UnityEditor;
 
 public class Activator : MonoBehaviour
 {
-    
-    
+
+
     Transform player;
 
     public List<GameObject> ObjectsToHide = new List<GameObject>();
-    public float HideDistance=20f;
+    public float HideDistance = 20f;
 
 
     private void Start()
@@ -23,24 +23,24 @@ public class Activator : MonoBehaviour
     {
         foreach (GameObject objectToHide in ObjectsToHide)
         {
-            if (objectToHide!=null)
+            if (objectToHide != null)
             {
-                float DistanceToPlayer = Vector3.Distance(player.position,objectToHide.transform.position);
-                objectToHide.SetActive(DistanceToPlayer<=HideDistance);
+                float DistanceToPlayer = Vector3.Distance(player.position, objectToHide.transform.position);
+                objectToHide.SetActive(DistanceToPlayer <= HideDistance);
 
             }
         }
-        
+
     }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (player==null)
+        if (player == null)
         {
             return;
         }
-        Handles.DrawWireDisc(player.position,Vector3.back,HideDistance);
+        Handles.DrawWireDisc(player.position, Vector3.back, HideDistance);
     }
 #endif
 }

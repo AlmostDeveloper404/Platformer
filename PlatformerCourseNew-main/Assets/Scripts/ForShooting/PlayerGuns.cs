@@ -5,6 +5,8 @@ public class PlayerGuns : MonoBehaviour
     public Gun[] guns;
     public int currentIndex;
 
+    public AudioSource BulletsPick;
+
     private void Start()
     {
         SetGunByIndex(currentIndex);
@@ -28,6 +30,7 @@ public class PlayerGuns : MonoBehaviour
 
     public void AddBullets(int gunIndex,int amountOfBullets)
     {
-        guns[gunIndex].AddBullets(amountOfBullets); 
+        guns[gunIndex].AddBullets(amountOfBullets);
+        BulletsPick.Play();
     }
 }

@@ -9,6 +9,8 @@ public class Aim : MonoBehaviour
 
     public Transform PlayerTransform;
 
+    public PlayerMovement playerMovement;
+
     Camera cam;
 
     private void Awake()
@@ -23,10 +25,10 @@ public class Aim : MonoBehaviour
 
     private void LateUpdate()
     {
-        Crosshead();
+        Crosshair();
     }
 
-    void Crosshead()
+    void Crosshair()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(-Vector3.forward, Vector3.zero);
@@ -47,19 +49,24 @@ public class Aim : MonoBehaviour
 
     void PlayerRotation()
     {
-        if (target.position.x>PlayerTransform.position.x)
+        if (playerMovement.isGrounded)
         {
-            Quaternion desiredPos= Quaternion.Euler(0f, -desiredAngle, 0f);
-            PlayerTransform.rotation =Quaternion.Slerp(PlayerTransform.rotation,desiredPos,slerpSpeed*Time.deltaTime);
+            if (target.position.x > PlayerTransform.position.x)
+            {
+                Quaternion desiredPos = Quaternion.Euler(0f, -desiredAngle, 0f);
+                PlayerTransform.rotation = Quaternion.Slerp(PlayerTransform.rotation, desiredPos, slerpSpeed * Time.deltaTime);
+            }
+            else if (target.position.x < PlayerTransform.position.x)
+            {
+                Quaternion desiredPos = Quaternion.Euler(0f, desiredAngle, 0f);
+                PlayerTransform.rotation = Quaternion.Slerp(PlayerTransform.rotation, desiredPos, slerpSpeed * Time.deltaTime);
+            }
+
         }
-        else if(target.position.x < PlayerTransform.position.x)
-        {
-            Quaternion desiredPos = Quaternion.Euler(0f, desiredAngle, 0f);
-            PlayerTransform.rotation = Quaternion.Slerp(PlayerTransform.rotation, desiredPos, slerpSpeed * Time.deltaTime);
-        }
+        
     }
 
-    
 
-    
+
+
 }

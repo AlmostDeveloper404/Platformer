@@ -11,13 +11,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]float availableSurfaceAngleForJump = 45f;
     [SerializeField] float scaleRate;
 
+    private int _jumpFrameCounter;
+
     public Transform CeilingCheckPoint;
 
     public Transform capsule;
 
     public float MaxSpeed;
 
-    [SerializeField]bool isGrounded = true;
+    public bool isGrounded = true;
 
     private void Awake()
     {
@@ -44,12 +46,24 @@ public class PlayerMovement : MonoBehaviour
             }
             capsule.localScale = Vector3.Lerp(capsule.localScale, new Vector3(1f,1f,1f), Time.deltaTime * scaleRate);
         }
-        
     }
 
     private void FixedUpdate()
     {
         Movement();
+        TorqueToPlayer();
+    }
+
+    public void TorqueToPlayer()
+    {
+        _jumpFrameCounter++;
+        if (_jumpFrameCounter==2)
+        {
+            _rigidbody.AddRelativeTorque(0f, 0f, 10f, ForceMode.VelocityChange);
+            _rigidbody.freezeRotation = false;
+
+        }
+        
     }
 
     void Movement()
@@ -76,12 +90,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
+            transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.identity,Time.deltaTime*15f);
             _rigidbody.AddForce(-_rigidbody.velocity.x * friction, 0f, 0f, ForceMode.VelocityChange);
         }
     }
-    void Jump()
+    public void Jump()
     {
+        _jumpFrameCounter = 0;
         _rigidbody.AddForce(0f, jumpForce, 0f, ForceMode.VelocityChange);
+        
     }
 
     bool isCeilingAbove()
@@ -102,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
             if (angleToSurfaceNormal < availableSurfaceAngleForJump)
             {
                 isGrounded = true;
+                _rigidbody.freezeRotation = true;
             }
 
         }

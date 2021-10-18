@@ -18,7 +18,7 @@ public class Rocket : MonoBehaviour
     {
         transform.position += Time.deltaTime*transform.forward*Speed;
         Vector3 dir = playerTransform.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir,-Vector3.forward);
+        Quaternion lookRotation = Quaternion.LookRotation(dir ,-Vector3.forward);
         transform.rotation = Quaternion.Lerp(transform.rotation,lookRotation,Time.deltaTime*lerpSpeed);
     }
 }

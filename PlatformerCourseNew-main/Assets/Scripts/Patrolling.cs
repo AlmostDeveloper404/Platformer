@@ -61,7 +61,7 @@ public class Patrolling : MonoBehaviour
         }
 
         RaycastHit rayInfo;
-        if(Physics.Raycast(RaycastPoint.position,Vector3.down,out rayInfo))
+        if (Physics.Raycast(RaycastPoint.position, Vector3.down, out rayInfo))
         {
             transform.position = rayInfo.point;
 
