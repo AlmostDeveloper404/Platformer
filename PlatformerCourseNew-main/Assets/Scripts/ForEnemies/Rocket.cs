@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
@@ -10,8 +8,7 @@ public class Rocket : MonoBehaviour
 
     private void Start()
     {
-        playerTransform = PlayerHealth.instance.transform;
-        
+        playerTransform = PlayerHealth.instance.transform;      
     }
 
     private void Update()

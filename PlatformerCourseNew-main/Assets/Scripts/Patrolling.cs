@@ -41,6 +41,7 @@ public class Patrolling : MonoBehaviour
             transform.position -= new Vector3(Time.deltaTime*Speed,0f,0f);
             if (transform.position.x<Left.position.x)
             {
+                
                 CurrentDirection = Direction.Right;
                 isStopped = true;
                 Invoke("StartWalking",StopTime);
@@ -63,7 +64,10 @@ public class Patrolling : MonoBehaviour
         RaycastHit rayInfo;
         if (Physics.Raycast(RaycastPoint.position, Vector3.down, out rayInfo))
         {
-            transform.position = rayInfo.point;
+            Vector3 pigPos = transform.position;
+            pigPos = rayInfo.point;
+            pigPos.z = 0;
+            transform.position = pigPos;
 
         }
 

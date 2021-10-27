@@ -20,6 +20,7 @@ public class Rope : MonoBehaviour
     public Transform RopeStart;
 
     float _length;
+    [SerializeField] float ropeMaxLength;
 
     public LineRendererCreation LineRendererCreation;
     public PlayerMovement PlayerMovement;
@@ -36,7 +37,7 @@ public class Rope : MonoBehaviour
         if (CurrentRopeState==RopeState.Fly)
         {
             float distance= Vector3.Distance(RopeStart.position, hook.transform.position);
-            if (distance > 20f)
+            if (distance > ropeMaxLength)
             {
                 hook.gameObject.SetActive(false);
                 CurrentRopeState = RopeState.Disable;
@@ -93,7 +94,7 @@ public class Rope : MonoBehaviour
             springJoint.damper = 5f;
 
             _length = Vector3.Distance(RopeStart.position,hook.transform.position);
-            springJoint.maxDistance = _length;
+            springJoint.maxDistance = _length/1.5f;
 
             CurrentRopeState = RopeState.Active;
         }

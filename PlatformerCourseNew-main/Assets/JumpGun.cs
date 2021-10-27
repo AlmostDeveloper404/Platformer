@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class JumpGun : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class JumpGun : MonoBehaviour
     public Transform FirePoint;
     public float Force;
     public Gun GunScript;
+
+    public UnityEvent OnJumpGunShot;
 
     public float GunReloading;
     bool isReadyToUse = true;
@@ -37,6 +40,7 @@ public class JumpGun : MonoBehaviour
 
     void UseJumpGun()
     {
+        OnJumpGunShot.Invoke();
         playerRB.AddForce(-FirePoint.forward * Force, ForceMode.VelocityChange);
         _timer = GunReloading;
     }

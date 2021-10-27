@@ -20,6 +20,7 @@ public class SetAnimationTrigger : MonoBehaviour
     }
     public void Attack()
     {
-        Instantiate(Pref,FirePoint.position,FirePoint.rotation);
+        Instantiate(Pref,new Vector3(FirePoint.position.x,FirePoint.position.y,0f),FirePoint.rotation);
+        
     }
 }
