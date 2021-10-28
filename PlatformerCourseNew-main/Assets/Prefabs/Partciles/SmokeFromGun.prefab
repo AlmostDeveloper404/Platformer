@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7214336773470516440}
   - component: {fileID: 7214336773470516439}
   - component: {fileID: 7214336773470516438}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SmokeFromGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}

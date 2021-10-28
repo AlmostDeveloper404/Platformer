@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4166061873596150}
   - component: {fileID: 198278174423348612}
   - component: {fileID: 199208744963923804}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4769,7 +4769,7 @@ GameObject:
   - component: {fileID: 198034991030350858}
   - component: {fileID: 199749464149880620}
   - component: {fileID: 114964595118623814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hit - yellow 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9533,7 +9533,7 @@ GameObject:
   - component: {fileID: 4165313442626794}
   - component: {fileID: 198813229950031924}
   - component: {fileID: 199943144802699118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: shine-ray -stretched-
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14227,7 +14227,7 @@ GameObject:
   - component: {fileID: 4174165499168454}
   - component: {fileID: 198258966125535690}
   - component: {fileID: 199669788123913780}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}

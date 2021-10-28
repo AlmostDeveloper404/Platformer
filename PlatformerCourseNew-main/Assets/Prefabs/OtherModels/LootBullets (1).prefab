@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4143151304932962327}
   - component: {fileID: 4143151304932962326}
   - component: {fileID: 4143151304932962325}
+  - component: {fileID: -918526298776179434}
   m_Layer: 0
   m_Name: LootBullets (1)
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GunIndex: 1
-  AmountBulletsToAdd: 20
+  AmountBulletsToAdd: 40
 --- !u!135 &4143151304932962325
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -59,8 +60,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-918526298776179434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4143151304932962408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c104da61be7f3c488d48df3072b5267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 90, z: 0}
 --- !u!1 &4143151305371993299
 GameObject:
   m_ObjectHideFlags: 0
